@@ -1,9 +1,9 @@
 /*
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:29:56
- * @LastEditors: chaichai chaichai@cute.com
- * @LastEditTime: 2022-10-09 15:01:15
- * @FilePath: \blog3.0\src\router\index.js
+ * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
+ * @LastEditTime: 2022-10-14 10:02:08
+ * @FilePath: \Vue-Second-dimensional-personal-blog\src\router\index.js
  * @Description: 
  * 
  * Copyright (c) 2022 by CQUCC-4-433, All Rights Reserved. 
@@ -20,7 +20,7 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta: {
-      title: '柴柴の博客 | 技术宅-改变未来'
+      title: '医 · 者'
     }
   },
   {
@@ -28,7 +28,7 @@ const routes = [
     name: 'about',
     component: () => import('../views/FirstView/FirstView.vue'),
     meta: {
-      title: '首页 | 技术宅-改变未来'
+      title: '首页 | 医 · 者'
     }
   },
   {
@@ -36,7 +36,7 @@ const routes = [
     name: 'blog',
     component: () => import('../views/BlogView/BlogView.vue'),
     meta: {
-      title: '博客 | 技术宅-改变未来'
+      title: '博客 | 医 · 者'
     }
   },
   {
@@ -44,7 +44,7 @@ const routes = [
     name: 'back',
     component: () => import('../views/BackView/BackView.vue'),
     meta: {
-      title: '后台 | 技术宅-改变未来'
+      title: '后台 | 医 · 者'
     }
   },
   {
@@ -52,7 +52,7 @@ const routes = [
     name: '404',
     component: () => import('../views/404View.vue'),
     meta: {
-      title: '404 | 技术宅-改变未来'
+      title: '404 | 医 · 者'
     }
   },
 

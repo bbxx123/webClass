@@ -1,9 +1,9 @@
 <!--
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:29:56
- * @LastEditors: chaichai chaichai@cute.com
- * @LastEditTime: 2022-10-10 17:13:00
- * @FilePath: \blog3.0\src\views\FirstView\FirstView.vue
+ * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
+ * @LastEditTime: 2022-10-14 11:10:25
+ * @FilePath: \Vue-Second-dimensional-personal-blog\src\views\FirstView\FirstView.vue
  * @Description:  [CQUCC-4-433](https://github.com/4-433) 正在找寻志同道合的小伙伴，欢迎前端、后端、UI加入我们！
  * 
  * Copyright (c) 2022 by CQUCC-4-433, All Rights Reserved. 
@@ -20,24 +20,18 @@
       <div class="contentBox">
         <div class="contentTitle">
           <div class="markdown-body">
-            <markdown />
+            <markdown1 />
           </div>
         </div>
       </div>
       <div :class="locked ? 'asideBoxFix' : 'asideBox'">
-        <div class="asideImg">
-          <!-- 头像 -->
-          <el-avatar
-            src="https://chaichaiimage.oss-cn-hangzhou.aliyuncs.com/blogimg/0d1b2cad168244918d2ee927bb664eb5.jpeg"
-            :size="size"
-            class="asidePic"
-          ></el-avatar>
+        <div class="asideImg">        
         </div>
-        <div class="asideTile">柴柴</div>
-        <div class="asideTile1">老爷保佑！前途无量！</div>
-        <el-divider>🌴</el-divider>
+        <div class="asideTile">医·者</div>
+        <div class="asideTile1">文章：抗击疫情典型事迹</div>
+        <!-- <el-divider></el-divider> -->
         <!-- 侧边栏底部图片 -->
-        <img src="@/assets/huli.gif" alt="" class="bottomImg" />
+        <!-- <img src="@/assets/huli.gif" alt="" class="bottomImg" /> -->
       </div>
       <div v-if="btnFlag" class="go-top" @click="backTop">
         <!-- 返回顶部图标 -->
@@ -52,13 +46,13 @@
 import bannerView from "@/components/bannerView/index";
 import footerView from "@/components/footerView/index.vue";
 // md文件地址
-import markdown from "../home.md";
+import markdown1 from "../home.md";
 import "./css/FirstView.scss";
 import "highlight.js/styles/github.css";
 import "github-markdown-css";
 export default {
   name:'FirstView',
-  components: { bannerView, markdown, footerView },
+  components: { bannerView, markdown1, footerView },
   mounted() {
     window.addEventListener("scroll", this.scrollToTop);
     this.$nextTick(() => {
@@ -77,7 +71,7 @@ export default {
       locked: false,
       btnFlag: false,
       //导航背景图片
-      img: "http://chaichaiimage.oss-cn-hangzhou.aliyuncs.com/blog3.0/bg16.jpg",
+      img:require( "@/assets/bg1.jpeg" ),
       // 导航文字说明
       title: "首页",
     };

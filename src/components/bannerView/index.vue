@@ -1,9 +1,9 @@
 <!--
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:42:49
- * @LastEditors: chaichai chaichai@cute.com
- * @LastEditTime: 2022-10-09 10:39:13
- * @FilePath: \blog3.0\src\components\bannerView\index.vue
+ * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
+ * @LastEditTime: 2022-10-14 11:08:10
+ * @FilePath: \Vue-Second-dimensional-personal-blog\src\components\bannerView\index.vue
  * @Description: 
  * 
  * Copyright (c) 2022 by CQUCC-4-433, All Rights Reserved. 
@@ -16,7 +16,7 @@
     >
       <div class="coverBox">
         <div class="navBox">
-          <div class="topTitle">chaichai.top</div>
+          <div class="topTitle">医 · 者</div>
           <el-menu
             class="el-menu-demo"
             mode="horizontal"
@@ -27,7 +27,7 @@
             text-color="#fff"
             menu-trigger="click"
           >
-            <el-menu-item index="about">首页</el-menu-item>
+            <el-menu-item index="about">文章</el-menu-item>
             <el-menu-item index="blog">博客</el-menu-item>
             <el-menu-item index="back">后台</el-menu-item>
             <el-submenu index="2">
