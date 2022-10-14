@@ -2,7 +2,7 @@
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-28 09:53:31
  * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
- * @LastEditTime: 2022-10-14 11:10:47
+ * @LastEditTime: 2022-10-14 14:57:51
  * @FilePath: \Vue-Second-dimensional-personal-blog\src\views\FirstView\css\FirstView.scss
  * @Description: 
  * 
@@ -105,13 +105,13 @@
         display: block;
         width: 100%;
       }
-
       .asideImg {
         position: relative;
         width: 100%;
         height: 140px;
         // 侧边栏顶部图片--原始
-        background: url("http://chaichaiimage.oss-cn-hangzhou.aliyuncs.com/blog3.0/bg12.jpg");
+        background: url("http://chaichaiimage.oss-cn-hangzhou.aliyuncs.com/blog3.0/bg2.jpg");
+        // background: #ccc;
         background-position: 0 -70px;
         background-size: cover;
 

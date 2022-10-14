@@ -2,13 +2,12 @@
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:29:56
  * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
- * @LastEditTime: 2022-10-14 11:10:25
+ * @LastEditTime: 2022-10-14 14:54:44
  * @FilePath: \Vue-Second-dimensional-personal-blog\src\views\FirstView\FirstView.vue
  * @Description:  [CQUCC-4-433](https://github.com/4-433) 正在找寻志同道合的小伙伴，欢迎前端、后端、UI加入我们！
  * 
  * Copyright (c) 2022 by CQUCC-4-433, All Rights Reserved. 
 -->
-
 <template>
   <div class="aboutBox">
     <bannerView
@@ -29,9 +28,6 @@
         </div>
         <div class="asideTile">医·者</div>
         <div class="asideTile1">文章：抗击疫情典型事迹</div>
-        <!-- <el-divider></el-divider> -->
-        <!-- 侧边栏底部图片 -->
-        <!-- <img src="@/assets/huli.gif" alt="" class="bottomImg" /> -->
       </div>
       <div v-if="btnFlag" class="go-top" @click="backTop">
         <!-- 返回顶部图标 -->

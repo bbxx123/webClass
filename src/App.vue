@@ -1,9 +1,9 @@
 <!--
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:29:56
- * @LastEditors: chaichai chaichai@cute.com
- * @LastEditTime: 2022-10-10 17:12:10
- * @FilePath: \blog3.0\src\App.vue
+ * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
+ * @LastEditTime: 2022-10-14 14:59:42
+ * @FilePath: \Vue-Second-dimensional-personal-blog\src\App.vue
  * @Description: 
  * 
  * Copyright (c) 2022 by CQUCC-4-433, All Rights Reserved. 
@@ -21,7 +21,7 @@
     <!-- 用户点击页面内任意地方开始自动播放 -->
     <!-- commponents里面放了一个可以在pc，手机端，微信打开以后自动播放的音乐组件，有需要的可以康康 -->
     <!-- 这里随便放了一首歌，需要的同学可以使用 vue-video-player 等插件~ -->
-    <audio src="http://music.163.com/song/media/outer/url?id=1500151640.mp3" loop autoplay ref="au"></audio>
+    <!-- <audio src="http://music.163.com/song/media/outer/url?id=1500151640.mp3" loop autoplay ref="au"></audio> -->
   </div>
 </template>
 
