@@ -24,6 +24,22 @@ const routes = [
     }
   },
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/LoginView/LoginView.vue'),
+    meta: {
+      title: '登录 | 医 · 者'
+    }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../views/RegisterView/RegisterView.vue'),
+    meta: {
+      title: '注册 | 医 · 者'
+    }
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('../views/FirstView/FirstView.vue'),

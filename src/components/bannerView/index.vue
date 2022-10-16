@@ -28,10 +28,11 @@
             menu-trigger="click"
           >
             <el-menu-item index="about">文章</el-menu-item>
-            <el-menu-item index="blog">博客</el-menu-item>
+            <el-menu-item index="blog">留言板</el-menu-item>
+            <el-menu-item index="my">我的</el-menu-item>
             <el-menu-item index="back">后台</el-menu-item>
-            <el-submenu index="2">
-              <template slot="title">友链</template>
+            <!-- <el-submenu index="2">
+              <template slot="title">后台</template>
               <el-menu-item index="2-1" class="friendList"
                 ><img src="@/assets/baimeng.png" alt="" class="friendIco" /><a
                   href="https://marrydream.top/"
@@ -42,7 +43,7 @@
               <el-menu-item index="2-2" class="friendList">
                 <a href="#" style="color: #fff">虚位以待~</a>
               </el-menu-item>
-            </el-submenu>
+            </el-submenu> -->
           </el-menu>
         </div>
         <div class="centerTile">{{ titleName }}</div>
@@ -54,7 +55,7 @@
 
 <script>
 export default {
-  name:'bannerView',
+  name: "bannerView",
   props: {
     imgUrl: {
       required: true,

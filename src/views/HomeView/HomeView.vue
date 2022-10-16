@@ -21,7 +21,9 @@
         <!-- 引导按钮 -->
         <div class="btnBox">
           <el-button round @click="clickHome" class="btnStyle">登录</el-button>
-          <el-button round class="btnStyle">注册</el-button>
+          <el-button round class="btnStyle" @click="clickRegister"
+            >注册</el-button
+          >
         </div>
       </div>
       <!-- 页脚 -->
@@ -51,7 +53,7 @@ export default {
         "2019年12月16日--至今",
         "人类经历了百年不遇的重大劫难-新冠肺炎疫情",
         "就在这时，涌现出了一波又一波舍己为人的“大白”，他们坚守着保护着我们每一个人",
-        "他们奋斗在病毒的一线，一次又一次赌上自己的性命，与死神抢夺每一条生命"
+        "他们奋斗在病毒的一线，一次又一次赌上自己的性命，与死神抢夺每一条生命",
       ],
       dialogVisible: false, // 弹框的出现与否
       dialogTitle: "GitHub", //弹窗标题
@@ -87,7 +89,10 @@ export default {
       this.dialogVisible = false;
     },
     clickHome() {
-      this.$router.push("/about");
+      this.$router.push("/login");
+    },
+    clickRegister() {
+      this.$router.push("/register");
     },
   },
 };

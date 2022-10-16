@@ -13,8 +13,13 @@
     <!-- <HomeView v-if="home"></HomeView>
     <AboutView v-if="about"></AboutView> -->
 
-    <transition class="auto-scroll" appear name="animate__animated animate__bounce"
-      enter-active-class="animate__backInUp animate__slow" leave-active-class="animate__fadeOutDownBig contron">
+    <transition
+      class="auto-scroll"
+      appear
+      name="animate__animated animate__bounce"
+      enter-active-class="animate__backInUp animate__slow"
+      leave-active-class="animate__fadeOutDownBig contron"
+    >
       <!-- 解决抖动 -->
       <router-view style="-webkit-backface-visibility: hidden"></router-view>
     </transition>
@@ -30,13 +35,6 @@ import HomeView from "@/views/HomeView/HomeView.vue";
 import AboutView from "@/views/FirstView/FirstView.vue";
 export default {
   components: { HomeView, AboutView },
-  mounted() {
-    document.addEventListener('click', (e) => {
-      if (e.isTrusted) {
-        this.$refs.au.play()
-      }
-    })
-  },
 
   data() {
     return {
