@@ -1,3 +1,12 @@
+<!--
+ * @Author: fengyuanyao fengyuanyao@fanyu.com
+ * @Date: 2022-10-17 08:33:42
+ * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
+ * @LastEditTime: 2022-10-17 14:59:02
+ * @FilePath: \Vue-Second-dimensional-personal-blog\src\views\LoginView\LoginView.vue
+ * 
+ * Copyright (c) 2022 by error: git config user.name && git config user.email & please set dead value or install git, All Rights Reserved. 
+-->
 <template>
   <div>
     <h1 class="loginTitle">欢迎来到 医 · 者 登录界面</h1>
@@ -30,6 +39,7 @@
 </template>
 
 <script>
+import { Login } from "@/api/user.js";
 export default {
   data() {
     return {
@@ -37,6 +47,8 @@ export default {
         name: "",
         word: "",
       },
+      userStatus: false,
+      passStatus: false,
       rules: {
         name: [{ required: true, message: "请输入用户名", trigger: "blur" }],
         word: [
@@ -46,10 +58,25 @@ export default {
       },
     };
   },
+  mounted() {},
   methods: {
     submitForm(formName) {
-      console.log(this.form);
-      this.$router.push("/about");
+      Login().then((res) => {
+        console.log(res);
+        res.data.forEach((item) => {
+          if(item.username === this.form.name) {
+            this.userStatus = true
+            if(item.password === this.form.word)
+            this.passStatus = true
+          } 
+        });
+        if(this.userStatus && this.passStatus) {
+          this.$message.success('登陆成功！')
+          this.$router.push("/about")
+        } else {
+          this.$message.error('账号或密码错误！请重新登录！')
+        }
+      });
     },
     back() {
       this.$router.push("/");

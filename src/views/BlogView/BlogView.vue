@@ -1,9 +1,9 @@
 <!--
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:54:27
- * @LastEditors: chaichai chaichai@cute.com
- * @LastEditTime: 2022-09-27 16:25:29
- * @FilePath: \blog3.0\src\views\BlogView.vue
+ * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
+ * @LastEditTime: 2022-10-17 09:11:09
+ * @FilePath: \Vue-Second-dimensional-personal-blog\src\views\BlogView\BlogView.vue
  * @Description: 
  * 
  * Copyright (c) 2022 by CQUCC-4-433, All Rights Reserved. 
@@ -32,16 +32,13 @@
 <script>
 import bannerView from "@/components/bannerView/index.vue";
 import footerView from "@/components/footerView/index.vue";
-import bannerList1 from "./components/bannerList1.vue";
-import bannerList2 from "./components/bannerList2.vue";
-import bannerList3 from "./components/bannerList3.vue";
 export default {
   name: "BlogView",
   components: { bannerView, footerView, bannerList1, bannerList2, bannerList3 },
   data() {
     return {
       input: "",
-      img: "http://chaichaiimage.oss-cn-hangzhou.aliyuncs.com/blog3.0/bg17.jpg",
+      img: require("@/assets/iq13.jpg"),
       title: "留言板",
       inputList: [
         {
@@ -71,7 +68,7 @@ export default {
   top: 30px;
   left: 30px;
   margin-top: 30px;
-  width: 300px;
+  width: 250px;
   height: 35px;
   line-height: 33px;
   /*background:#fff;*/
@@ -80,14 +77,14 @@ export default {
   background-color: #4d4948;
   border: 1px solid #4d4948;
   text-align: center;
-  margin-right: 30px;
+  // margin-right: 30px;
 }
 /*尖角在左侧*/
 .pop .arrow {
   position: absolute;
   top: 5px;
   left: -16px; /* 圆角的位置需要细心调试哦 */
-  width: 0;
+  width: 0; 
   height: 0;
   font-size: 0;
   border: solid 8px;
@@ -99,6 +96,7 @@ export default {
 
   // 背景图片
   // background: url("@/assets/cover.jpg");
+  // background: url("@/assets/bgdb.jpg");
   background-repeat: no-repeat;
   background-size: 500px;
   background-position: 110% 100%;
