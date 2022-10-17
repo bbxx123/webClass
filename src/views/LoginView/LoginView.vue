@@ -29,6 +29,7 @@
         </el-form-item>
         <el-form-item style="width: 800px">
           <el-button @click="back">返回</el-button>
+          <el-button type="success" @click="goRegister">去注册</el-button>
           <el-button type="primary" @click="submitForm(form)" class="loginBtn"
             >立即登录</el-button
           >
@@ -58,23 +59,34 @@ export default {
       },
     };
   },
-  mounted() {},
+  mounted() {
+    localStorage.removeItem("id");
+    localStorage.removeItem("rootId");
+    localStorage.removeItem("user");
+    localStorage.removeItem("pass");
+  },
   methods: {
+    goRegister() {
+      this.$router.push("/register");
+    },
     submitForm(formName) {
       Login().then((res) => {
         console.log(res);
         res.data.forEach((item) => {
-          if(item.username === this.form.name) {
-            this.userStatus = true
-            if(item.password === this.form.word)
-            this.passStatus = true
-          } 
+          if (item.username === this.form.name) {
+            this.userStatus = true;
+            if (item.password === this.form.word) this.passStatus = true;
+            localStorage.setItem("id", item.id);
+            localStorage.setItem("rootId", item.rootId);
+            localStorage.setItem("user", item.username);
+            localStorage.setItem("pass", item.password);
+          }
         });
-        if(this.userStatus && this.passStatus) {
-          this.$message.success('登陆成功！')
-          this.$router.push("/about")
+        if (this.userStatus && this.passStatus) {
+          this.$message.success("登陆成功！");
+          this.$router.push("/about");
         } else {
-          this.$message.error('账号或密码错误！请重新登录！')
+          this.$message.error("账号或密码错误！请重新登录！");
         }
       });
     },

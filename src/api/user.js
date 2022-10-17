@@ -16,3 +16,53 @@ export function Login() {
         method: 'get',
     })
 }
+export function Register(data) {
+    return serve({
+        url: '/add',
+        method: 'post',
+        data
+    })
+}
+
+export function SearchIput() {
+    return serve({
+        url: '/searchinput',
+        method: 'get',
+    })
+}
+
+export function Addinput(data) {
+    return serve({
+        url: '/addinput',
+        method: 'post',
+        data
+    })
+}
+export function Change(data) {
+    return serve({
+        url: '/change',
+        method: 'post',
+        data
+    })
+}
+export function ChangeUser(data) {
+    return serve({
+        url: '/changeuser',
+        method: 'post',
+        data
+    })
+}
+export function DelUser(data) {
+    return serve({
+        url: '/deluser',
+        method: 'post',
+        data
+    })
+}
+export function DelInput(data) {
+    return serve({
+        url: '/delinput',
+        method: 'post',
+        data
+    })
+}

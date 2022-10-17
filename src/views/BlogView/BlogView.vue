@@ -14,7 +14,7 @@
     <div class="inputContent">
       <div class="pop" v-for="(item, index) in inputList" :key="index">
         <div class="arrow"></div>
-        {{ item.msg }}
+        {{ item.inputContent }}
       </div>
     </div>
     <div class="inputBox">
@@ -23,7 +23,9 @@
         v-model="input"
         placeholder="请输入留言信息"
       ></el-input>
-      <el-button style="width: 10%" type="primary">发送</el-button>
+      <el-button style="width: 10%" type="primary" @click="addinput"
+        >发送</el-button
+      >
     </div>
     <footerView></footerView>
   </div>
@@ -32,32 +34,37 @@
 <script>
 import bannerView from "@/components/bannerView/index.vue";
 import footerView from "@/components/footerView/index.vue";
+import { SearchIput, Addinput } from "@/api/user";
 export default {
   name: "BlogView",
-  components: { bannerView, footerView, bannerList1, bannerList2, bannerList3 },
+  components: { bannerView, footerView },
   data() {
     return {
       input: "",
       img: require("@/assets/iq13.jpg"),
       title: "留言板",
-      inputList: [
-        {
-          msg: "希望疫情快点好起来，大家都能更好的生活",
-        },
-        {
-          msg: "希望疫情快点好起来，大家都能更好的生活1",
-        },
-        {
-          msg: "希望疫情快点好起来，大家都能更好的生活2",
-        },
-        {
-          msg: "希望疫情快点好起来，大家都能更好的生活3",
-        },
-        {
-          msg: "希望疫情快点好起来，大家都能更好的生活4",
-        },
-      ],
+      inputList: [],
     };
+  },
+  mounted() {
+    this.getinput();
+  },
+  methods: {
+    getinput() {
+      SearchIput().then((res) => {
+        this.inputList = res.data;
+      });
+    },
+    addinput() {
+      Addinput({ inputContent: this.input }).then((res) => {
+        if (res.status === 200) {
+          this.$message.success("留言成功");
+          this.getinput();
+        } else {
+          this.$message.error("留言失败");
+        }
+      });
+    },
   },
 };
 </script>
@@ -84,7 +91,7 @@ export default {
   position: absolute;
   top: 5px;
   left: -16px; /* 圆角的位置需要细心调试哦 */
-  width: 0; 
+  width: 0;
   height: 0;
   font-size: 0;
   border: solid 8px;

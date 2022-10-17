@@ -52,7 +52,7 @@ const routes = [
     name: 'blog',
     component: () => import('../views/BlogView/BlogView.vue'),
     meta: {
-      title: '博客 | 医 · 者'
+      title: '留言板 | 医 · 者'
     }
   },
   {
