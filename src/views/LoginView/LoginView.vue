@@ -2,7 +2,7 @@
  * @Author: fengyuanyao fengyuanyao@fanyu.com
  * @Date: 2022-10-17 08:33:42
  * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
- * @LastEditTime: 2022-10-17 14:59:02
+ * @LastEditTime: 2022-10-18 10:12:18
  * @FilePath: \Vue-Second-dimensional-personal-blog\src\views\LoginView\LoginView.vue
  * 
  * Copyright (c) 2022 by error: git config user.name && git config user.email & please set dead value or install git, All Rights Reserved. 
@@ -64,6 +64,9 @@ export default {
     localStorage.removeItem("rootId");
     localStorage.removeItem("user");
     localStorage.removeItem("pass");
+    localStorage.removeItem("address");
+            localStorage.removeItem("email");
+            localStorage.removeItem("birth");
   },
   methods: {
     goRegister() {
@@ -80,6 +83,9 @@ export default {
             localStorage.setItem("rootId", item.rootId);
             localStorage.setItem("user", item.username);
             localStorage.setItem("pass", item.password);
+            localStorage.setItem("address", item.address);
+            localStorage.setItem("email", item.email);
+            localStorage.setItem("birth", item.birth);
           }
         });
         if (this.userStatus && this.passStatus) {

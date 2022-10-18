@@ -2,7 +2,7 @@
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:42:49
  * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
- * @LastEditTime: 2022-10-14 11:08:10
+ * @LastEditTime: 2022-10-18 08:54:06
  * @FilePath: \Vue-Second-dimensional-personal-blog\src\components\bannerView\index.vue
  * @Description: 
  * 

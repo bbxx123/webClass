@@ -2,7 +2,7 @@
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 15:50:49
  * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
- * @LastEditTime: 2022-10-14 11:13:37
+ * @LastEditTime: 2022-10-18 09:13:01
  * @FilePath: \Vue-Second-dimensional-personal-blog\src\components\footerView\index.vue
  * @Description: 
  * 
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     getNowFormatDate() {
-      var t1 = new Date("2022/10/13 4:30:00");
+      var t1 = new Date("2022/10/16 4:30:00");
       var data = new Date(); //获取当前时间
       var times = t1.getTime() - data.getTime(); //时间差的毫秒数
       var days = parseInt(times / (24 * 1000 * 3600)); //计算相差的天数

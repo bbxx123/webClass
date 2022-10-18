@@ -2,7 +2,7 @@
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:29:56
  * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
- * @LastEditTime: 2022-10-17 11:06:08
+ * @LastEditTime: 2022-10-18 08:54:23
  * @FilePath: \Vue-Second-dimensional-personal-blog\src\router\index.js
  * @Description: 
  * 
@@ -44,7 +44,7 @@ const routes = [
     name: 'about',
     component: () => import('../views/FirstView/FirstView.vue'),
     meta: {
-      title: '首页 | 医 · 者'
+      title: '文章 | 医 · 者'
     }
   },
   {
@@ -75,10 +75,16 @@ const routes = [
       {
         path: '/userRoot',
         component: () => import('../views/BackView/components/userRoot.vue'),
+        meta: {
+          title: '用户管理 | 医 · 者'
+        },
       },
       {
         path: '/inputRoot',
         component: () => import('../views/BackView/components/inputRoot.vue'),
+        meta: {
+          title: '留言管理 | 医 · 者'
+        },
       }
     ]
   },

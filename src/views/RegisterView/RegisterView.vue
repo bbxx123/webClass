@@ -2,39 +2,33 @@
   <div>
     <h1 class="loginTitle">欢迎来到 医 · 者 注册界面</h1>
     <div class="loginBox">
-      <el-form
-        ref="form"
-        :model="form"
-        :rules="rules"
-        class="loginform"
-        label-width="100px"
-      >
+      <el-form ref="form" :model="form" :rules="rules" class="loginform" label-width="100px">
         <el-form-item label="用户：" prop="name">
           <el-input v-model="form.name" placeholder="请输入账户"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="pass">
-          <el-input
-            type="password"
-            placeholder="请输入密码"
-            v-model="form.pass"
-          ></el-input>
+          <el-input type="password" placeholder="请输入密码" v-model="form.pass"></el-input>
         </el-form-item>
         <el-form-item label="确认密码" prop="checkPass">
-          <el-input
-            type="password"
-            placeholder="请再次输入密码"
-            v-model="form.checkPass"
-          ></el-input>
+          <el-input type="password" placeholder="请再次输入密码" v-model="form.checkPass"></el-input>
+        </el-form-item>
+        <el-form-item label="邮箱：" prop="email">
+          <el-input v-model="form.email" placeholder="请输入邮箱"></el-input>
+        </el-form-item>
+        <el-form-item label="生日：" prop="birth">
+          <div class="block">
+            <el-date-picker v-model="form.birth" type="date" placeholder="选择日期"   format="yyyy 年 MM 月 dd 日"
+      value-format="yyyy-MM-dd">
+            </el-date-picker>
+          </div>
+        </el-form-item>
+        <el-form-item label="地址：" prop="address">
+          <el-input v-model="form.address" placeholder="请输入地址"></el-input>
         </el-form-item>
         <el-form-item style="width: 800px">
           <el-button @click="back">返回</el-button>
           <el-button type="success" @click="goLogin">去登录</el-button>
-          <el-button
-            type="primary"
-            @click="submitForm(form)"
-            class="registerBtn"
-            >立即注册</el-button
-          >
+          <el-button type="primary" @click="submitForm(form)" class="registerBtn">立即注册</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -64,11 +58,22 @@ export default {
         callback();
       }
     };
+    var checkEmail = (rule, value, callback) => {
+      const regEmail = /^\w+@\w+(\.\w+)+$/
+      if (regEmail.test(value)) {
+        // 合法邮箱
+        return callback()
+      }
+      callback(new Error('请输入合法邮箱'))
+    }
     return {
       form: {
         name: "",
         pass: "",
         checkPass: "",
+        email: '',
+        birth: '',
+        address:''
       },
       // addform: {
       //   username: this.form.name,
@@ -80,6 +85,10 @@ export default {
         checkPass: [
           { required: true, validator: validatePass2, trigger: "blur" },
         ],
+        email: [
+          {  validator: checkEmail, trigger: "blur" },
+        ],
+
       },
     };
   },
@@ -88,7 +97,7 @@ export default {
       this.$router.push("/login");
     },
     submitForm(formName) {
-      Register({ username: this.form.name, password: this.form.pass }).then(
+      Register({ username: this.form.name, password: this.form.pass,email:this.form.email,address:this.form.address,birth:this.form.birth }).then(
         (res) => {
           console.log(res, "res");
           if (this.form.name === "" && this.form.pass === "") {
@@ -114,10 +123,12 @@ export default {
   margin-top: 20px;
   width: 560px;
 }
+
 .loginTitle {
   margin-top: 20px;
   margin-bottom: 50px;
 }
+
 .loginBox {
   width: 600px;
   //   background: pink;

@@ -2,7 +2,7 @@
  * @Author: chaichai chaichai@cute.com
  * @Date: 2022-09-26 08:29:56
  * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
- * @LastEditTime: 2022-10-14 14:54:44
+ * @LastEditTime: 2022-10-18 09:05:48
  * @FilePath: \Vue-Second-dimensional-personal-blog\src\views\FirstView\FirstView.vue
  * @Description:  [CQUCC-4-433](https://github.com/4-433) 正在找寻志同道合的小伙伴，欢迎前端、后端、UI加入我们！
  * 
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div :class="locked ? 'asideBoxFix' : 'asideBox'">
-        <div class="asideImg">        
+        <div class="asideImg">
         </div>
         <div class="asideTile">医·者</div>
         <div class="asideTile1">文章：抗击疫情典型事迹</div>
@@ -69,7 +69,7 @@ export default {
       //导航背景图片
       img:require( "@/assets/bg1.jpeg" ),
       // 导航文字说明
-      title: "首页",
+      title: "文章",
     };
   },
   methods: {

@@ -2,7 +2,7 @@
  * @Author: fengyuanyao fengyuanyao@fanyu.com
  * @Date: 2022-10-17 10:08:18
  * @LastEditors: fengyuanyao fengyuanyao@fanyu.com
- * @LastEditTime: 2022-10-17 11:03:03
+ * @LastEditTime: 2022-10-18 12:37:51
  * @FilePath: \Vue-Second-dimensional-personal-blog\src\views\BackView\components\userRoot.vue
  * 
  * Copyright (c) 2022 by error: git config user.name && git config user.email & please set dead value or install git, All Rights Reserved. 
@@ -31,6 +31,24 @@
         min-width="250"
       />
       <el-table-column
+        label="邮箱"
+        property="email"
+        align="center"
+        min-width="250"
+      />
+      <el-table-column
+        label="生日"
+        property="birth"
+        align="center"
+        min-width="250"
+      />
+      <el-table-column
+        label="地址"
+        property="address"
+        align="center"
+        min-width="250"
+      />
+      <el-table-column
         label="用户权限 ( 1：普通用户 2：管理员 )"
         property="rootId"
         align="center"
@@ -54,7 +72,11 @@
                   scope.row.id,
                   scope.row.username,
                   scope.row.password,
-                  scope.row.rootId
+                  scope.row.rootId,
+                  scope.row.email,
+                  scope.row.address,
+                  scope.row.birth,
+                  
                 )
               "
             >
@@ -95,6 +117,25 @@
             v-model.number="form.password"
           ></el-input>
         </el-form-item>
+        <el-form-item label="邮箱:" prop="email">
+          <el-input
+            placeholder="请输入邮箱"
+            v-model="form.email"
+          ></el-input>
+        </el-form-item>
+        <el-form-item label="当前生日:" prop="birth">
+          <div class="block">
+            <el-date-picker v-model="form.birth" type="date" placeholder="选择日期"   format="yyyy 年 MM 月 dd 日"
+      value-format="yyyy-MM-dd">
+            </el-date-picker>
+          </div>
+        </el-form-item>
+        <el-form-item label="地址:" prop="address">
+          <el-input
+            placeholder="请输入地址"
+            v-model="form.address"
+          ></el-input>
+        </el-form-item>
         <el-form-item label="用户权限:" prop="rootId">
           <el-input
             placeholder="请输入用户权限(1：普通用户 2：管理员)"
@@ -114,6 +155,14 @@
 import { Login, ChangeUser, DelUser } from "@/api/user";
 export default {
   data() {
+    var checkEmail = (rule, value, callback) => {
+      const regEmail = /^\w+@\w+(\.\w+)+$/
+      if (regEmail.test(value)) {
+        // 合法邮箱
+        return callback()
+      }
+      callback(new Error('请输入合法邮箱'))
+    }
     return {
       dialogVisible: false,
       form: {
@@ -121,6 +170,9 @@ export default {
         username: "",
         password: "",
         rootId: "",
+        email:'',
+address:'',
+birth:''
       },
       rules: {
         username: [
@@ -133,6 +185,9 @@ export default {
         rootId: [
           { required: true, message: "请输入用户权限", trigger: "blur" },
           { type: "number", message: "权限必须为数字值" },
+        ],
+        email: [
+          {  validator: checkEmail, trigger: "blur" },
         ],
       },
       tableData: [],
@@ -147,11 +202,14 @@ export default {
         this.tableData = res.data;
       });
     },
-    goaddNew(type, id, name, pass, rootId) {
+    goaddNew(type, id, name, pass, rootId,email,address,birth) {
       this.form.id = id;
       this.form.username = name;
       this.form.password = pass;
       this.form.rootId = rootId;
+      this.form.email = email;
+      this.form.address = address;
+      this.form.birth = birth;
       this.dialogVisible = type;
     },
     delMeetingBook(id) {
@@ -194,8 +252,12 @@ export default {
         if (res.status === 200) {
           this.$message.success("修改成功！");
           this.dialogVisible = false;
-          localStorage.setItem("user", this.form.username);
-          localStorage.setItem("pass", this.form.password);
+          localStorage.setItem("rootId", this.form.rootId);
+            localStorage.setItem("user", this.form.username);
+            localStorage.setItem("pass", this.form.password);
+            localStorage.setItem("address", this.form.address);
+            localStorage.setItem("email", this.form.email);
+            localStorage.setItem("birth", this.form.birth);
           this.getUser();
         } else {
           this.$message.error("修改失败!");
@@ -217,6 +279,13 @@ export default {
 .userTitle {
   margin: 5px 0 20px 5px;
   text-align: left;
+}
+.el-message-box{
+  width: 422px!important;
+  height: 112px!important;
+}
+.el-message-box__message p{
+  height: 0!important;
 }
 .table_optionItem {
   display: flex;
